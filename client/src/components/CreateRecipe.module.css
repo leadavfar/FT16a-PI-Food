@@ -1,0 +1,16 @@
+.input{
+    margin-block: 5px;
+    margin-inline: 10px;
+}
+
+.button{
+    margin-inline: 10px;
+}
+
+.select{
+    margin-block: 5px;
+}
+
+.div{
+    justify-content:space-between
+}
