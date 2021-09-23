@@ -20,7 +20,8 @@ export default function Detail(props){
                 MyRecipe.length>0 ?
                 <div>
                     <h1>{MyRecipe[0].title}</h1>
-                    <img src= {MyRecipe[0].image}/>
+                    {/* <img src= {MyRecipe[0].image} alt= "https://www.icex.es/icex/wcm/idc/groups/public/documents/imagen/mde5/odew/~edisp/img2019810787.jpg" width="600px" height="400px"/> */}
+                    <img src= {!MyRecipe[0].image ? "https://media.istockphoto.com/photos/fresh-vegetables-and-herbs-picture-id879709748?k=20&m=879709748&s=612x612&w=0&h=R3yuolequVG2OHVUvWolOH8qB6snhuBtt6hAg1aVqug=" : MyRecipe[0].image }alt= "image not found" width="600px" height="400px"/>
                     <p>Spoonacular Score: {MyRecipe[0].spoonacularScore}</p>
                     <p>Health Score: {MyRecipe[0].healthScore}</p>
                     <p dangerouslySetInnerHTML={{ __html: MyRecipe[0].summary }} />

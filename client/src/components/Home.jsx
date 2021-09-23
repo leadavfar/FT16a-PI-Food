@@ -1,7 +1,7 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {filterRecipesByDiet, getDiets, getRecipes, filterByOrigin, orderByName} from "../actions";
+import {filterRecipesByDiet, getDiets, getRecipes, filterByOrigin, orderByName, orderByPrice} from "../actions";
 import {Link} from "react-router-dom"
 import Card from "./Card.jsx";
 import Paged from "./Paged.jsx";
@@ -26,7 +26,7 @@ export default function Home(){
 
     useEffect(()=> {
         dispatch(getDiets());
-        }, [dispatch]);
+        },[dispatch]);
 
     useEffect (()=>{
         dispatch(getRecipes())
@@ -52,6 +52,13 @@ export default function Home(){
         setOrder(`Ordered${e.target.value}`)
     };
 
+    function handleSortPrice(e){
+        e.preventDefault();
+        dispatch(orderByPrice(e.target.value))
+        setCurrentPage(1);
+        setOrder(`Ordered${e.target.value}`)
+    };
+
     return(
         <div>
             <h1>THE FOOD PAGE</h1>
@@ -63,6 +70,11 @@ export default function Home(){
                 <select className={Styles.select} onChange= {e=> handleSort(e)}>
                     <option value= "asc">Ascending</option>
                     <option value= "desc">Descending</option>
+                </select>
+
+                <select className={Styles.select} onChange= {e=> handleSortPrice(e)}>
+                    <option value= "high">Low Price</option>
+                    <option value= "low">High Price</option>
                 </select>
 
                 <select className={Styles.select} onChange= {e=> handleFilterDiets(e)}>
@@ -86,7 +98,7 @@ export default function Home(){
                     return (
                         <div className= {Styles.cards}>
                             <Link to= {"/home/" + el.id}>
-                                <Card title= {el.title} summary= {el.summary} image= {el.image} id= {el.id}/>
+                                <Card title= {el.title} /* summary= {el.summary} */ image= {el.image} /* id= {el.id} */ price= {el.price}/>
                             </Link>
                         </div>
                     );

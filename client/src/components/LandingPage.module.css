@@ -1,0 +1,8 @@
+.landing{
+    position: absolute;
+	height: 150px;
+	left: 50%;
+	top: 50%;
+	margin-top: -100px;
+	margin-left: -330px;
+}

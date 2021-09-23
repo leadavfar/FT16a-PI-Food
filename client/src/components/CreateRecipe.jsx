@@ -10,7 +10,7 @@ function validate(input){
     if (!input.title){
         errors.title= "Se requiere un titulo para la receta";
     } else if (!input.summary){
-        errors.summary = "Se requiere un resumen de la receta"
+        errors.summary = "Se requiere un resumen de la receta";
     }
     return errors;
 };
@@ -41,15 +41,6 @@ export default function CreateRecipe(){
         [e.target.name]: e.target.value
     }));
 }
-
-/*     function handleCheck(e){
-        if (e.target.checked){
-            setInput({
-                ...input,
-                status: e.target.value
-            })
-        }
-    } */
 
     function handleDelete(el){
         setInput({
@@ -112,8 +103,8 @@ export default function CreateRecipe(){
                     name= "summary"
                     onChange= {(e)=> handleChange(e)}
                     />
-                    {errors.title && (
-                        <p className= "error">{errors.title} </p>
+                     {errors.summary && (
+                        <p className= "error">{errors.summary} </p>
                     )}
                 </div>
 
@@ -150,16 +141,6 @@ export default function CreateRecipe(){
                     />
                 </div>
 
-{/*                 <div>
-                    <label>Diets</label>
-                    <label><input
-                    type="checkbox"
-                    value= "vegan"
-                    name= "vegan"
-                    onChange= {(e)=> handleCheck(e)}
-                    />Vegan</label>
-                </div> */}
-
                 <select className={Styles.select} onChange={(e)=> handleSelect(e)}>
                     {diets.map((el)=> (
                         <option value= {el.name}>{el.name}</option>
@@ -171,9 +152,9 @@ export default function CreateRecipe(){
             </form>
 
             {input.diets.map(el=> 
-                <div className= "divOcc">
+                <div>
                     <p>{el}</p>
-                    <button className={Styles.button} className= "botonX" onClick= {()=> handleDelete(el)}>x</button>
+                    <button className={Styles.button} onClick= {()=> handleDelete(el)}>x</button>
                 </div>)}
         </div>
     )

@@ -66,6 +66,13 @@ export function orderByName(payload){
     };
 };
 
+export function orderByPrice(payload){
+    return{
+        type: "ORDER_BY_PRICE",
+        payload
+    };
+};
+
 export function getRecipeDetail(id){
     return async function (dispatch){
         try{

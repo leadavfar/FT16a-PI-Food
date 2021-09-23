@@ -46,11 +46,37 @@ function rootReducer(state= initialState, action) {
             }
 
             case "FILTER_BY_ORIGIN":
-                const originFilter2= action.payload === "Api" ? state.allRecipes.filter(el=> el.createdInDb) : state.allRecipes.filter(el=> !el.createdInDb);
+                const originFilter= action.payload === "Api" ? state.allRecipes.filter(el=> el.createdInDb) : state.allRecipes.filter(el=> !el.createdInDb);
                 return{
                     ...state,
-                    recipes: action.payload === "All" ? state.allRecipes : originFilter2
+                    recipes: action.payload === "All" ? state.allRecipes : originFilter
                 }
+
+            case "ORDER_BY_PRICE":
+                let sortedArrPrice= action.payload === "high"?
+                state.recipes.sort(function(a, b){
+                    if (a.price > b.price){
+                        return 1;
+                    }
+                    if (b.price > a.price){
+                        return -1;
+                    }
+                    return 0;
+                }):
+                state.recipes.sort(function(a,b){
+                    if (a.price > b.price){
+                        return -1;
+                    }
+                    if (b.price > a.price){
+                        return 1;
+                    }
+                    return 0;
+                  })
+                return {
+                    ...state,
+                    recipes: sortedArrPrice
+                };
+
 
             case "ORDER_BY_NAME":
                 let sortedArr= action.payload === "asc"?
