@@ -17,7 +17,7 @@ export default function Paged({recipesPerPage, allRecipes, paged}){
                     <li className= "number" key= {number}>
                     <a onClick= {()=> paged(number)}> {number} </a>
                     </li>
-                ))};
+                ))}
             </ul>
         </div>
     );

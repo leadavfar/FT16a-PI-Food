@@ -18,7 +18,7 @@ export default function Home(){
     const [recipesPerPage, setRecipesPerPage]= useState(9);
     const indexOfLastRecipe= currentPage * recipesPerPage;
     const indexOfFirstRecipe= indexOfLastRecipe - recipesPerPage;
-    const currentRecipes= allRecipes.slice(indexOfFirstRecipe,indexOfLastRecipe);
+    const currentRecipes= allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
     
     const paged= (pageNumber)=> {
         setCurrentPage(pageNumber)
@@ -68,8 +68,8 @@ export default function Home(){
             <Link to= "/recipe"><button className={Styles.button}>Create Recipe</button></Link>
             <div>
                 <select className={Styles.select} onChange= {e=> handleSort(e)}>
-                    <option value= "asc">Ascending</option>
-                    <option value= "desc">Descending</option>
+                    <option value= "asc">A-Z</option>
+                    <option value= "desc">Z-A</option>
                 </select>
 
                 <select className={Styles.select} onChange= {e=> handleSortPrice(e)}>
@@ -102,7 +102,7 @@ export default function Home(){
                             </Link>
                         </div>
                     );
-                    })};
+                    })}
 
                 <Paged
                     recipesPerPage= {recipesPerPage}
