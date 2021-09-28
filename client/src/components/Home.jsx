@@ -97,9 +97,9 @@ export default function Home(){
                 {currentRecipes?.map((el)=> {
                     return (
                         <div className= {Styles.cards}>
-                            <Link to= {"/home/" + el.id}>
-                                <Card title= {el.title} /* summary= {el.summary} */ image= {el.image} /* id= {el.id} */ price= {el.price}/>
-                            </Link>
+                            {/* <Link to= {"/home/" + el.id}> */}
+                                <Card title= {el.title} /* summary= {el.summary} */ image= {el.image} id= {el.id} price= {el.price}/>
+                            {/* </Link> */}
                         </div>
                     );
                     })}

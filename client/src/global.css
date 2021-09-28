@@ -111,12 +111,15 @@ img{
   box-shadow: 5px 10px black;
 }
 
-A:link {
-  text-decoration: none }
-A:hover {
+A:link, A:hover, A:visited, A:active {
+  text-decoration: none;
+  color: white; }
+/* A:hover {
   color: white; text-decoration: none }
 A:visited {
   color: white; text-decoration: none }
+A:active {
+    color: white; text-decoration: none } */
 
 h1{
   font-size: 50px;
