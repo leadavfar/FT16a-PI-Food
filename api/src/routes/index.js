@@ -26,6 +26,7 @@ const getApiInfo = async () => {
             spoonacularScore: el.spoonacularScore,
             healthScore: el.healthScore,
             diets: el.diets,
+            price: el.pricePerServing,
             steps: el.analyzedInstructions.map(el=> {return(el.steps.map(el=> { return(el.step)}))}).flat()
         };
       });
@@ -107,7 +108,7 @@ router.post('/post', async (req, res)=> {
         createdInDb,
         diets
     } = req.body;
-    
+
     const recipeNew= await Recipe.create({
         title,
         id,
