@@ -27,16 +27,19 @@ export default function Detail(props){
                     <h3></h3>
                     <p className= {Styles.detail} dangerouslySetInnerHTML={{ __html: MyRecipe[0].summary }} />
                     <h3> <b>Diets: </b>{!MyRecipe[0].createdInDb? MyRecipe[0].diets + " ": MyRecipe[0].diets.map(el=> el.name + " ")}</h3>
-                    <hr/>
+                    <h2/>
                     <h2>STEPS</h2>
                     <ol className= {Styles.detail}>
                     {MyRecipe[0].steps.map(el=><li>{el}</li>)}
                     </ol>
                 </div> 
-                        : <p>Loading...</p>
+                        : 
+                        <div>
+                            <h1>Loading...</h1>
+                            </div>
             }
             <Link to= "/home">
-                <button>Volver</button>
+                <button>Back</button>
             </Link>
         </div>
     )

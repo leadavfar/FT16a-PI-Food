@@ -8,9 +8,9 @@ import Styles from "./CreateRecipe.module.css"
 function validate(input){
     let errors= {};
     if (!input.title){
-        errors.title= "Se requiere un titulo para la receta";
+        errors.title= "Title is required";
     } else if (!input.summary){
-        errors.summary = "Se requiere un resumen de la receta";
+        errors.summary = "Summary is required";
     }
     return errors;
 };
@@ -28,6 +28,7 @@ export default function CreateRecipe(){
         spoonacularScore:"",
         healthScore:"",
         steps:[],
+        price:"",
         diets:[]
     });
 
@@ -67,6 +68,7 @@ export default function CreateRecipe(){
             spoonacularScore:"",
             healthScore:"",
             steps:[],
+            price:"",
             diets:[]
         })
         history.push("/home")
@@ -87,6 +89,7 @@ export default function CreateRecipe(){
                     type="text"
                     value= {input.title}
                     name= "title"
+                    required= "true"
                     onChange= {(e)=> handleChange(e)}
                     />
                     {errors.title && (
@@ -101,6 +104,7 @@ export default function CreateRecipe(){
                     type="text"
                     value= {input.summary}
                     name= "summary"
+                    required= "true"
                     onChange= {(e)=> handleChange(e)}
                     />
                      {errors.summary && (
@@ -140,6 +144,28 @@ export default function CreateRecipe(){
                     onChange= {(e)=> handleChange(e)}
                     />
                 </div>
+
+                {/* <div>
+                    <label>Steps: </label>
+                    <input
+                    className={Styles.input}
+                    type="text"
+                    value= {input.steps}
+                    name= "steps"
+                    onChange= {(e)=> handleChange(e)}
+                    />
+                </div> */}
+
+                {/* <div>
+                    <label>Price: </label>
+                    <input
+                    className={Styles.input}
+                    type="number"
+                    value= {input.price}
+                    name= "price"
+                    onChange= {(e)=> handleChange(e)}
+                    />
+                </div> */}
 
                 <select className={Styles.select} onChange={(e)=> handleSelect(e)}>
                     {diets.map((el)=> (

@@ -8,7 +8,7 @@ const {Recipe, Diet} = require('../db');
 
 /* const {API_KEY} = process.env */
 
-const apk= "8427db01b1de4ac9b649794e80976c9d";
+const apk= "5b23f9741e4c42b4b56a00cf331fc75f";
 
 const router = Router();
 
@@ -105,6 +105,7 @@ router.post('/post', async (req, res)=> {
         spoonacularScore,
         healthScore,
         steps,
+        price,
         createdInDb,
         diets
     } = req.body;
@@ -117,6 +118,7 @@ router.post('/post', async (req, res)=> {
         spoonacularScore,
         healthScore,
         steps,
+        price,
         createdInDb
     });
 

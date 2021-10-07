@@ -39,7 +39,7 @@ export function getRecipeTitle(title){
 }
 
 export function postRecipe(payload){
-    return async function (_dispatch){
+    return async function (){
         const response= await axios.post("http://localhost:3001/post", payload);
         return response;
     }
